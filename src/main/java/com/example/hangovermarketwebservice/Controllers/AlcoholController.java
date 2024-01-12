@@ -13,12 +13,17 @@ public class AlcoholController {
     @Autowired
     AlcoholRepository alcoholRepository;
 
-    @PostMapping("add-user")
+    @PostMapping("add-alco")
     public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol)
     {
         alcoholRepository.save(alcohol);
         return ResponseEntity.ok().body(alcohol);
 
+    }
+    
+    @PostMapping("/check")
+    public String check_commits() {
+        return "all good";
     }
 
 }
