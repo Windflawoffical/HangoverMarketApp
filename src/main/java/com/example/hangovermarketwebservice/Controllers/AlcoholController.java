@@ -6,6 +6,7 @@ import com.example.hangovermarketwebservice.Models.Alcohol;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +18,15 @@ public class AlcoholController {
     AlcoholRepository alcoholRepository;
 
     @PostMapping("add-alco")
-    public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol)
-    {   
-        alcoholRepository.save(alcohol);
-        return ResponseEntity.ok().body(alcohol);
+    public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol) {   
+        try {
+            alcoholRepository.save(alcohol);
+            return ResponseEntity.ok().body(alcohol);
+            }      
+        catch (DataIntegrityViolationException exceptionHangMarket) {
+            return ResponseEntity.badRequest().body("Wrong name!");
+    }
+        
     }
     
     @DeleteMapping("delete-alco")
