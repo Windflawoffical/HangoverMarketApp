@@ -21,7 +21,7 @@ public class AlcoholController {
 
     }
     
-    @PostMapping("/check")
+    @GetMapping("/check")
     public String check_commits() {
         return "all good";
     }
