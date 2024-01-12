@@ -2,6 +2,9 @@ package com.example.hangovermarketwebservice.Controllers;
 
 import com.example.hangovermarketwebservice.Repositories.AlcoholRepository;
 import com.example.hangovermarketwebservice.Models.Alcohol;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +29,11 @@ public class AlcoholController {
         return "Deleted successfully!";
     }
 
+    @GetMapping("/getall")
+    public List<Alcohol> getall() {
+        List<Alcohol> result = alcoholRepository.findAll();
+        return result;
+    }
 
     @GetMapping("/check")
     public String check_commits() {
