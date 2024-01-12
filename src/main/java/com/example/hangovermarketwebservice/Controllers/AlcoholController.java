@@ -15,12 +15,18 @@ public class AlcoholController {
 
     @PostMapping("add-alco")
     public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol)
-    {
+    {   
         alcoholRepository.save(alcohol);
         return ResponseEntity.ok().body(alcohol);
-
     }
     
+    @DeleteMapping("delete-alco")
+    public String delete() {
+        alcoholRepository.deleteAll();
+        return "Deleted successfully!";
+    }
+
+
     @GetMapping("/check")
     public String check_commits() {
         return "all good";
