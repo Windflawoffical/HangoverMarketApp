@@ -10,8 +10,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/alcohols")
@@ -21,13 +19,14 @@ public class AlcoholController {
     AlcoholRepository alcoholRepository;
 
     @PostMapping("add-alco")
-    public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol) {   
+    public String AddAlcohol (@RequestBody Alcohol alcohol) {   
         try {
             alcoholRepository.save(alcohol);
-            return ResponseEntity.ok().body(alcohol);
+            return "redirect:/check";
             }      
         catch (DataIntegrityViolationException exceptionHangMarket) {
-            return ResponseEntity.badRequest().body("Wrong name!");
+            // return ResponseEntity.badRequest().body("Wrong name!");
+            return "Wrong Name!";
     }
         
     }
