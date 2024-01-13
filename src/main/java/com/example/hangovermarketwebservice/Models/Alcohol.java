@@ -9,6 +9,17 @@ import jakarta.persistence.*;
 )
 public class Alcohol {
 
+    public Alcohol() {
+        
+    }
+
+    public Alcohol(String name, String description, float price, String manufacturer) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.manufacturer = manufacturer;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
