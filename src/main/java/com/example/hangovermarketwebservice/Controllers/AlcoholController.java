@@ -31,23 +31,8 @@ public class AlcoholController {
                                 @RequestParam float price,
                                 @RequestParam String manufacturer)
     {
-        Alcohol alcohol = new Alcohol();
-        alcohol.setName(name);
-        alcohol.setDescription(description);
-        alcohol.setPrice(price);
-        alcohol.setManufacturer(manufacturer);
-
-        alcoholRepository.save(alcohol);
-        /*
-        Also can make constructor in Alcohol
         Alcohol alcohol = new Alcohol(name, description, price, manufacturer);
-        
-        /models/Alcohol.java
-
-        public Alcohol(String name, String description, float price, String manufacturer) {
-            ***
-        }
-         */      
+        alcoholRepository.save(alcohol);
             return "redirect:/check";
     }
 
@@ -60,24 +45,19 @@ public class AlcoholController {
             }      
         catch (DataIntegrityViolationException exceptionHangMarket) {
             return ResponseEntity.badRequest().body("Wrong name!");
+        }
     }
-        
-    }
-        
-    
-    @DeleteMapping("/alcohols/delete-alco")
+
+    @GetMapping("/alcohols/delete-alco")
     public String delete() {
         alcoholRepository.deleteAll();
-        return "Deleted successfully!";
+        return "deleted";
     }
 
     @GetMapping("/alcohols/getall")
-    // public List<Alcohol> getall(Model model) {
-        public String getall(Model model) {
+    public String getall(Model model) {
         List<Alcohol> result = alcoholRepository.findAll();
         model.addAttribute("all_alc", result);
-        // return result;
         return "getall";
     }
-
 }
