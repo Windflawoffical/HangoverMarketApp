@@ -9,6 +9,10 @@ import jakarta.persistence.*;
 )
 public class Alcohol {
 
+    public Alcohol() {
+        
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
