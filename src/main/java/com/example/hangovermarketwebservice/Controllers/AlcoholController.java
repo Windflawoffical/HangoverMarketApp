@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-// @RequestMapping(value = "/alcohols") //, method = { RequestMethod.GET, RequestMethod.POST })
 public class AlcoholController {
 
     @Autowired
@@ -25,6 +24,7 @@ public class AlcoholController {
         return "add";
     }
 
+    //Метод добавления в бд алкоголя с использованием использованием web-страницы - @RequestParam ← application/x-www-form-urlencoded
     @PostMapping("/alcohols/add")
     public String AddPostAlcohol(@RequestParam String name,
                                 @RequestParam String description,
@@ -36,28 +36,39 @@ public class AlcoholController {
             return "redirect:/check";
     }
 
-    // RestController required for working
-    @PostMapping("/alcohols/add-alco")
-    public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol) {   
-        try {
-            alcoholRepository.save(alcohol);
-            return ResponseEntity.ok().body(alcohol);
-            }      
-        catch (DataIntegrityViolationException exceptionHangMarket) {
-            return ResponseEntity.badRequest().body("Wrong name!");
-        }
-    }
-
+    //Метод удаления из таблицы (alcohol) всех записей
     @GetMapping("/alcohols/delete-alco")
     public String delete() {
         alcoholRepository.deleteAll();
         return "deleted";
     }
 
+    //Метод вывода всех записей из таблицы (alcohol)
     @GetMapping("/alcohols/getall")
     public String getall(Model model) {
         List<Alcohol> result = alcoholRepository.findAll();
         model.addAttribute("all_alc", result);
         return "getall";
+    }
+
+    //Метод добавления в бд алкоголя с использованием json (insomnia) - @RequestBody ← application/json
+    /*
+    json:
+            {
+                "name": "имя",
+                "description": "описание",
+                "price":цена,
+                "manufacturer":"производитель"
+            }
+     */
+    @PostMapping("/alcohols/add_json")
+    public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol) {
+        try {
+            alcoholRepository.save(alcohol);
+            return ResponseEntity.ok().body(alcohol);
+        }
+        catch (DataIntegrityViolationException exceptionHangMarket) {
+            return ResponseEntity.badRequest().body("Wrong name!");
+        }
     }
 }
