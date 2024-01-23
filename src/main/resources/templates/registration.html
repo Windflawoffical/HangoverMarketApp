@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>form from Valya</title>
 </head>
 <body>
-    <form id="main-form" action="/users/registration" method="post">
+    <form id="main-form">
         <label for="first name">Имя:</label>
-        <input type="text" name="first_name" placeholder="Имя" id="first name"><br><br>
+        <input type="text" name="first_name" placeholder="Имя" id="first name" required><br><br>
         <label for="second name">Фамилия:</label>
-        <input type="text" name="second_name" placeholder="Фамилия" id="second name"><br><br>
+        <input type="text" name="second_name" placeholder="Фамилия" id="second name" required><br><br>
         <label for="phone">Номер телефона:</label>
-        <input type="number" name="phone_number" placeholder="Номер телефона" id="phone"><br><br>
+        <input type="number" name="phone_number" placeholder="Номер телефона" id="phone" required><b>11 цифр, начиная с '8'</b><br><br>
         <label for="password">Пароль:</label>
-        <input type="password" name="password" placeholder="Пароль" id="password"><br><br>
+        <input type="password" name="password" placeholder="Пароль" id="password" required><b>Пароль должен состоять из 6+ символов</b><br><br>
         <label for="repass">Проверка пароля:</label>
-        <input type="password" name="repass" placeholder="Проверка пароля" id="repass"><br><br>
-        <input type="submit" name="submit" value="Готово">
+        <input type="password" name="repass" placeholder="Проверка пароля" id="repass" required><b>Подтвердите пароль, указанный выше</b><br><br>
+        <button type="submit" disabled ="registration_button" onclick="isCorrectForm()" formaction="/users/registration" formmethod="post">Зарегистрироваться</button>
   </form>
+    <script th:src="@{/js/registration.js}"></script>
 </body>
 </html>

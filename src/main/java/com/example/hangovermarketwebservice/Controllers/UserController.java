@@ -6,6 +6,7 @@ import com.example.hangovermarketwebservice.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,24 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @GetMapping("/users/login")
+    public String log() {
+        return "login";
+    }
+
+    @PostMapping("/users/login")
+    public String login(@RequestParam Long phone_number,
+                        @RequestParam String password,
+                        Model model)
+    {
+        User user = userRepository.findByPhoneNumberAndPassword(phone_number, password);
+        if (user != null) {
+            return "redirect:/";
+        } else {
+            return "redirect:/users/login";
+        }
+    }
 
     @GetMapping("/users/registration")
     public String reg() {

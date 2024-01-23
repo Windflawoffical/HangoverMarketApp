@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+    <form id="main-form">
+        <label for="phone">Номер телефона:</label>
+        <input type="number" name="phone_number" placeholder="Номер телефона" id="phone"><b>11 цифр, начиная с '8'</b><br><br>
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" placeholder="Пароль" id="password"><b>Пароль должен состоять из 6+ символов</b><br><br>
+        <div>
+            <button disabled formaction="/users/login" formmethod="post">Вход</button>
+            <button type="submit" formaction="/users/registration" formmethod="get">Регистрация</button>
+        </div>
+    </form>
+    <script th:src="@{/js/login.js}"></script>
+</body>
+</html>
