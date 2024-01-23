@@ -12,11 +12,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String hello() {
-        return "index";
+        return "main";
     }
 
-    @GetMapping("/check")
-    public String check_commits(Model model) {
-        return "check";
-    }
 }

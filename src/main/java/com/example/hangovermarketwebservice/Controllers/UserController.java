@@ -33,7 +33,7 @@ public class UserController {
                 //@Builder - запись идентична записи "User userfordb = new User(phone_number, password, first_name, second_name);"
                 User userfordb = User.builder().phoneNumber(phone_number).password(password).firstName(first_name).secondName(second_name).build();
                 userRepository.save(userfordb);
-                return "redirect:/check";
+                return "redirect:/";
             } else {
                 return "Регистрация провалена, проверьте правильность вводимость данных!";
             }
