@@ -30,7 +30,8 @@ public class UserController {
     {
         if(!userRepository.existsByPhoneNumber(phone_number)){
             if(phone_number.toString().length() == 11 && password.length() >= 6) {
-                User userfordb = new User(phone_number, password, first_name, second_name);
+                //@Builder - запись идентична записи "User userfordb = new User(phone_number, password, first_name, second_name);"
+                User userfordb = User.builder().phoneNumber(phone_number).password(password).firstName(first_name).secondName(second_name).build();
                 userRepository.save(userfordb);
                 return "redirect:/check";
             } else {
@@ -51,7 +52,7 @@ public class UserController {
      */
     @PostMapping("/users/registration_json")
     public ResponseEntity<?> registration_json(@RequestBody User user) {
-        long PhoneNumber = user.getPhoneNumber();
+        Long PhoneNumber = user.getPhoneNumber();
         if (!userRepository.existsByPhoneNumber(user.getPhoneNumber())) {
             if (Long.toString(PhoneNumber).length() == 11 && user.getPassword().length() >= 6) {
                 userRepository.save(user);
