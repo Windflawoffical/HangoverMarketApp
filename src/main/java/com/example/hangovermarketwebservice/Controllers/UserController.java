@@ -1,5 +1,6 @@
 package com.example.hangovermarketwebservice.Controllers;
 
+import com.example.hangovermarketwebservice.Exceptions.BadRequestException;
 import com.example.hangovermarketwebservice.Models.User;
 import com.example.hangovermarketwebservice.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,16 +29,18 @@ public class UserController {
                                @RequestParam String first_name,
                                @RequestParam String second_name)
     {
-        if(!userRepository.existsByPhoneNumber(phone_number)){
-            if(phone_number.toString().length() == 11 && password.length() >= 6) {
-                //@Builder - запись идентична записи "User userfordb = new User(phone_number, password, first_name, second_name);"
-                User userfordb = User.builder().phoneNumber(phone_number).password(password).firstName(first_name).secondName(second_name).build();
-                userRepository.save(userfordb);
-                return "redirect:/";
-            } else {
-                return "Регистрация провалена, проверьте правильность вводимость данных!";
-            }
-        } return "Пользователь с таким телефонным номером уже существует!";
+        userRepository.findByPhoneNumber(phone_number).ifPresent(user -> {
+            throw new BadRequestException(String.format("Пользователь с таким телефонным номером '%s' уже существует!", phone_number));
+        });
+        if(phone_number.toString().length() == 11 && password.length() >= 6) {
+            //@Builder
+            //Запись практически идентична записи "User userfordb = new User(phone_number, password, first_name, second_name);"
+            User userfordb = User.builder().phoneNumber(phone_number).password(password).firstName(first_name).secondName(second_name).build();
+            userRepository.save(userfordb);
+            return "redirect:/";
+        } else {
+            return "Регистрация провалена, проверьте правильность вводимость данных!";
+        }
     }
 
     //Метод регистрации пользователя с использованием json (insomnia) - @RequestBody ← application/json
@@ -51,17 +54,17 @@ public class UserController {
         }
      */
     @PostMapping("/users/registration_json")
-    public ResponseEntity<?> registration_json(@RequestBody User user) {
-        Long PhoneNumber = user.getPhoneNumber();
-        if (!userRepository.existsByPhoneNumber(user.getPhoneNumber())) {
-            if (Long.toString(PhoneNumber).length() == 11 && user.getPassword().length() >= 6) {
-                userRepository.save(user);
-                return ResponseEntity.ok().body(user);
-            } else {
-                return ResponseEntity.badRequest().body("Регистрация провалена, проверьте правильность вводимость данных!");
-            }
+    public ResponseEntity<?> registration_json(@RequestBody User userfordb)
+    {
+        userRepository.findByPhoneNumber(userfordb.getPhoneNumber()).ifPresent(user -> {
+            throw new BadRequestException(String.format("Пользователь с таким телефонным номером '%s' уже существует!", userfordb.getPhoneNumber()));
+        });
+        if (userfordb.getPhoneNumber().toString().length() == 11 && userfordb.getPassword().length() >= 6) {
+            userRepository.save(userfordb);
+            return ResponseEntity.ok().body(userfordb);
+        } else {
+            return ResponseEntity.badRequest().body("Регистрация провалена, проверьте правильность вводимость данных!");
         }
-        return ResponseEntity.badRequest().body("Пользователь с таким телефонным номером уже существует!");
     }
 
 }
