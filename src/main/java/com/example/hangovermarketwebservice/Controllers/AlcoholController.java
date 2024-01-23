@@ -31,7 +31,8 @@ public class AlcoholController {
                                 @RequestParam float price,
                                 @RequestParam String manufacturer)
     {
-        Alcohol alcohol = new Alcohol(name, description, price, manufacturer);
+        //@Builder - запись идентична записи "Alcohol alcohol = new Alcohol(name, description, price, manufacturer);"
+        Alcohol alcohol = Alcohol.builder().name(name).description(description).price(price).manufacturer(manufacturer).build();
         alcoholRepository.save(alcohol);
             return "redirect:/check";
     }

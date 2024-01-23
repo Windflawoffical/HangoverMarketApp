@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface AlcoholRepository extends JpaRepository<Alcohol, Integer> {
+public interface AlcoholRepository extends JpaRepository<Alcohol, Long> {
 
 }
