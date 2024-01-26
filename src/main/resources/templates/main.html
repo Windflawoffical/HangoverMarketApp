@@ -7,17 +7,12 @@
     <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 <body>
-    <div id="header">
-        <h1 class="logo"><img class="brand" width="100px" th:src="@{/images/free-icon-beer.png}">Hangover</h1>
-        <div><a href="/users/login"><img class="avatar" th:src="@{/images/free-icon-avatar.png}"></a></div>
-        <div><a href="#"><img class="cart" th:src="@{/images/free-icon-shoppingcart.png}"></a></div>
-    </div>
+    <header th:insert="blocks/header"></header>
     <div id="main"></div>
     <div class="product">
-        
+    <footer th:insert="blocks/footer"></footer>    
     </div>
     <div id="aside"></div>
-    <div id="footer"></div>
 <!-- 
     <dialog class = "center">
         <div id="modal-box">

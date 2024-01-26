@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
     <title>Title</title>
 </head>
 <body>
+    <header th:insert="blocks/header"></header>
     <form id="main-form">
         <label for="phone">Номер телефона:</label>
         <input type="number" name="phone_number" placeholder="Номер телефона" id="phone"><b>11 цифр, начиная с '8'</b><br><br>
@@ -16,6 +18,8 @@
             <button type="submit" formaction="/users/registration" formmethod="get">Регистрация</button>
         </div>
     </form>
+    <div id="aside"></div>
+    <footer th:insert="blocks/footer"></footer>    
     <script th:src="@{/js/login.js}"></script>
 </body>
 </html>
