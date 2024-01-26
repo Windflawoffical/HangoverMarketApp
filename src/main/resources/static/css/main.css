@@ -1,94 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Rubik+Doodle+Triangles&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
- body {
-   height: 2000px;
- }
+body {
+  height: 2000px;
+}
 
- #header, #footer {
-   width: 100%;
-   height: 100px;
-   text-align: center;
-   border-bottom: 3px solid black;
-   background:whitesmoke;
-   color: #fff;
-   line-height: 100px;
-   margin-bottom: 100px;
-   float: left;
- }
+#header, #footer {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  border-bottom: 3px solid black;
+  background:whitesmoke;
+  color: #fff;
+  line-height: 100px;
+  margin-bottom: 100px;
+  float: left;
+}
 
- #footer {
-   margin-bottom: 0;
-   margin-top: 50px;
-   border-top: 3px solid black;
-   border-bottom:0 ;
- }
+#footer {
+  margin-bottom: 0;
+  margin-top: 50px;
+  border-top: 3px solid black;
+  border-bottom:0 ;
+}
 
- .cart {
-   display: inline-block;
-   width: 50px;
-   margin: 52px 30px 0 0;
-   float: right;
- }
+.cart {
+  display: inline-block;
+  width: 50px;
+  margin: 52px 30px 0 0;
+  float: right;
+}
 
 .avatar {
-    display: inline-block;
-    width: 50px;
-    float: right;
-    margin: 50px 15px 0 0 ;
+  display: inline-block;
+  width: 50px;
+  float: right;
+  margin: 50px 15px 0 0 ;
 }
 
 .logo {
-    display: inline-block;
-    color: black;
-    float: left;
+  display: inline-block;
+  color: black;
+  float: left;
 }
 
 .brand {
-    float: left;
+  float: left;
 }
 
 header > h1 {
-    float: left;
-    font-family: 'Quicksand', sans-serif;
-    font-family: 'Rubik Doodle Triangles', system-ui;
+  float: left;
+  font-family: 'Quicksand', sans-serif;
+  font-family: 'Rubik Doodle Triangles', system-ui;
 }
 
 #modal-box {
-    background-color: #00eeff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: #00eeff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .center {
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    /* margin: auto; */
-    width: 40%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: auto; */
+  width: 40%;
 }
 
 img {
-    margin-right: 0;
-    
-    float: left;
-    width: 180px;
+  margin-right: 0;
+  
+  float: left;
+  width: 180px;
 }
 
 #modal-text{
-    display: flex;
-    font-size: 40px;
+  display: flex;
+  font-size: 40px;
 }
 
 .modal-btn {
-    font-size: 40px;
-    /* font-style: bold; */
-    height: 100px;
-    width: 50%;
-    border-radius: 5px;
+  font-size: 40px;
+  /* font-style: bold; */
+  height: 100px;
+  width: 50%;
+  border-radius: 5px;
 }
