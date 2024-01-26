@@ -7,12 +7,11 @@
     <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 <body>
-    <header th:insert="blocks/header"></header>
-    <div id="main"></div>
-    <div class="product">
-    <footer th:insert="blocks/footer"></footer>    
-    </div>
+    <header th:insert="~{blocks/header}"></header>
+    <div class="main"></div>
+    <div class="product"></div>
     <div id="aside"></div>
+    <footer th:insert="~{blocks/footer}"></footer>    
 <!-- 
     <dialog class = "center">
         <div id="modal-box">

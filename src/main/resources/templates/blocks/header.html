@@ -1,6 +1,12 @@
 <div th:fragment="header">
     <div id="header">
-        <h1 class="logo"><img class="brand" width="100px" th:src="@{/images/free-icon-beer.png}">Hangover</h1>
+        <div>
+            <h1 class="logo">
+            <a href="/">
+            <img class="brand" th:src="@{/images/free-icon-beer.png}"/>Hangover
+            </h1>
+            </a>
+        </div>
         <div><a href="/users/login"><img class="avatar" th:src="@{/images/free-icon-avatar.png}"></a></div>
         <div><a href="#"><img class="cart" th:src="@{/images/free-icon-shoppingcart.png}"></a></div>
     </div>

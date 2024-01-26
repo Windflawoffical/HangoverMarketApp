@@ -10,3 +10,7 @@ function changeFormHandler() {
         formSubmit.removeAttribute('disabled');
     }
 }
+
+formSubmit.addEventListener("click", () => {
+    alert("Вы успешно вошли!")
+})

@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 <body>
-    <form id="main-form">
+    <header th:insert="~{blocks/header}"></header>
+    <div class="main center">
+        <form id="main-form">
         <label for="first name">Имя:</label>
         <input type="text" name="first_name" placeholder="Имя" id="first name" required><br><br>
         <label for="second name">Фамилия:</label>
@@ -17,7 +20,9 @@
         <label for="repass">Проверка пароля:</label>
         <input type="password" name="repass" placeholder="Проверка пароля" id="repass" required><b>Подтвердите пароль, указанный выше</b><br><br>
         <button type="submit" disabled ="registration_button" onclick="isCorrectForm()" formaction="/users/registration" formmethod="post">Зарегистрироваться</button>
-  </form>
+    </div>
+    </form>
+  <footer th:insert="~{blocks/footer}"></footer>
     <script th:src="@{/js/registration.js}"></script>
 </body>
 </html>
