@@ -7,7 +7,7 @@
     <title>Title</title>
 </head>
 <body>
-    <header th:insert="blocks/header"></header>
+    <header th:insert="~{blocks/header}"></header>
     <div class="main center">
         <form id="main-form">
             <label for="phone">Номер телефона:</label>
@@ -21,7 +21,7 @@
         </form>
     </div>
     <div id="aside"></div>
-    <footer th:insert="blocks/footer"></footer>    
+    <footer th:insert="~{blocks/footer}"></footer>    
     <script th:src="@{/js/login.js}"></script>
 </body>
 </html>
