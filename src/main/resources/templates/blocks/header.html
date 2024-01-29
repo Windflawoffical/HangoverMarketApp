@@ -1,11 +1,11 @@
-<div th:fragment="header">
+<div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
     <div id="header">
         <div>
             <h1 class="logo">
-            <a href="/">
-            <img class="brand" th:src="@{/images/free-icon-beer.png}"/>Hangover
+                <a href="/">
+                    <img class="brand" th:src="@{/images/free-icon-beer.png}"/>Hangover
+                </a>
             </h1>
-            </a>
         </div>
         <div><a href="/users/login"><img class="avatar" th:src="@{/images/free-icon-avatar.png}"></a></div>
         <div><a href="#"><img class="cart" th:src="@{/images/free-icon-shoppingcart.png}"></a></div>
