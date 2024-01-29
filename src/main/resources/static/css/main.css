@@ -3,6 +3,7 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: "Quick";
 }
 
 body {
@@ -11,59 +12,51 @@ body {
   flex-direction: column;
 }
 
-#header, #footer {
-  display: flex;
-  flex-direction: row;
-  /* position: relative; */
+.header {
+  margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 65%;
   height: 50px;
   /* line-height: 100px; */
 }
 
-#footer {
+.footer {
+  width: 100%;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
   margin-top: auto;
   color: #000;
   margin-bottom: 0;
   /* margin-top: 50px; */
   /* border-top: 3px solid black; */
-  border-bottom:0 ;
+  border-bottom:0;
 }
 
 .body-wrapper {
   display: flex;
+  width: 65%;
   flex-flow: row wrap;
   flex-grow: 1;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .main_container {
-  background-color: whitesmoke;
-  /* width: 75%; */
   min-width: 75%;
-  /* display: block; */
 }
 
 .main {
+  margin-left: 30px;
   min-height: 280px;
-  border-style:solid;
-  border-width: 3px;
-  border-bottom: none;
-}
-
-.center {
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
 }
 
 .aside-left {
+  background-color: whitesmoke;
+  /* margin-right: 20px; */
   display: flex;
   flex-direction: column;
-  float: left;
-  /* flex-direction: column; */
-  border-right: none;
-  border-left: none;
   float: left;
   min-width: 25%;
 }
@@ -74,59 +67,65 @@ body {
   width: 40%;
 }
 
-.up {
-  border-top: none;
+.carousel {
+  background-image: url("../images/alco.jpg");
+  background-size: cover;
+  min-height: 500px;
 }
 
-.img {
-  width: 50px;
-  height: 50px;
+.carousel_btns_pos {
+  min-height: 30px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  /* max-width: 50%; */
 }
 
-.avatar {
-  /* display: flex; */
-  /* position: fixed; */
-  /* right: 0; */
-  /* display: inline-block; */
-  /* width: 50px; */
-  float: right;
-  /* margin-top: 50px; */
+.carousel_btn {
+  margin-right: 15px;
+  background-color: rgb(140, 140, 140);
+  border: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  transition-duration: 0.1s;
+}
+
+.carousel_btn:hover {
+  height: 22px;
+  width: 22px;
+  border-radius: 11px;
+  border: solid;
+  border-width: 2px;
+  border-color: rgb(0, 81, 255);
+}
+
+
+.image {
+  width: 65px;
+  height: 65px;
 }
 
 .cart {
-  /* display: inline-block; */
-  display: flex;
-  width: 50px;
-  margin: 52px 30px 0 0;
   float: right;
-  /* min-width: 100%; */
-}
-
-.cart {
-  /* display: inline-block; */
-  display: flex;
-  width: 50px;
-  margin: 52px 30px 0 0;
-  float: right;
-  /* min-width: 100%; */
-}
-
-a {
-  color: #000;
-  text-decoration: none;
 }
 
 .brand {
-  /* width: 50px; */
-  /* height: auto; */
-  display: flex;
-  /* float: left; */
+  float: left;
 }
 
-header > h1 {
-  float: left;
-  font-family: 'Quicksand', sans-serif;
-  font-family: 'Rubik Doodle Triangles', system-ui;
+.brandname {
+  display: inline-flex;
+  padding-top: 15px;
+}
+.avatar {
+  float: right;
+}
+a {
+  color: #000;
+  text-decoration: none;
 }
 
 #modal-box {
