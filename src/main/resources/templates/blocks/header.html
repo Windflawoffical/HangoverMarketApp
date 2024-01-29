@@ -1,13 +1,8 @@
 <div th:fragment="header">
     <div id="header">
-        <div>
-            <h1 class="logo">
-            <a href="/">
-            <img class="brand" th:src="@{/images/free-icon-beer.png}"/>Hangover
-            </h1>
-            </a>
-        </div>
-        <div><a href="/users/login"><img class="avatar" th:src="@{/images/free-icon-avatar.png}"></a></div>
-        <div><a href="#"><img class="cart" th:src="@{/images/free-icon-shoppingcart.png}"></a></div>
+        <div class="brand"><a href="/"><img class="img" th:src="@{/images/free-icon-beer.png}"/></a></div>
+        <h1>Hangover</h1>
+        <div class="avatar"><a href="/users/login"><img class="img" th:src="@{/images/free-icon-avatar.png}"></a></div>
+        <div class="cart"><a href="#"><img class="img" th:src="@{/images/free-icon-shoppingcart.png}"></a></div>
     </div>
 </div>
