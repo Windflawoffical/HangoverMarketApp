@@ -8,17 +8,21 @@
 </head>
 <body>
     <header th:insert="~{blocks/header}"></header>
-    <div class="main center">
-        <form id="main-form">
-            <label for="phone">Номер телефона:</label>
-            <input type="number" name="phone_number" placeholder="Номер телефона" id="phone"><b>11 цифр, начиная с '8'</b><br><br>
-            <label for="password">Пароль:</label>
-            <input type="password" name="password" placeholder="Пароль" id="password"><b>Пароль должен состоять из 6+ символов</b><br><br>
-            <div>
-                <button type="button" onclick="isEverythingOk()">Вход</button>
-                <button type="button" onclick="window.location = '/users/registration';">Регистрация</button>
+    <div class="body-wrapper">
+        <div class="main_container">
+            <div class="main">
+                <form>
+                    <label for="phone">Номер телефона:</label>
+                    <input type="number" name="phone_number" placeholder="Номер телефона" id="phone"><b>11 цифр, начиная с '8'</b><br><br>
+                    <label for="password">Пароль:</label>
+                    <input type="password" name="password" placeholder="Пароль" id="password"><b>Пароль должен состоять из 6+ символов</b><br><br>
+                    <div>
+                        <button type="button" onclick="isEverythingOk()">Вход</button>
+                        <button type="button" onclick="window.location = '/users/registration';">Регистрация</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
     <div id="aside"></div>
     <footer th:insert="~{blocks/footer}"></footer>

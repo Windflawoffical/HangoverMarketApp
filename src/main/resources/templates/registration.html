@@ -7,20 +7,24 @@
 </head>
 <body>
     <header th:insert="~{blocks/header}"></header>
-    <div class="main center up">
-        <form id="main-form">
-            <label for="first name">Имя:</label>
-            <input type="text" name="first_name" placeholder="Имя" id="first name" required><br><br>
-            <label for="second name">Фамилия:</label>
-            <input type="text" name="second_name" placeholder="Фамилия" id="second name" required><br><br>
-            <label for="phone">Номер телефона:</label>
-            <input type="number" name="phone_number" placeholder="Номер телефона" id="phone" required><b>11 цифр, начиная с '8'</b><br><br>
-            <label for="password">Пароль:</label>
-            <input type="password" name="password" placeholder="Пароль" id="password" required><b>Пароль должен состоять из 6+ символов</b><br><br>
-            <label for="repass">Проверка пароля:</label>
-            <input type="password" name="repass" placeholder="Проверка пароля" id="repass" required><b>Подтвердите пароль, указанный выше</b><br><br>
-            <button type="button" disabled id="registration_button" onclick="isEverythingOk()">Зарегистрироваться</button>
-        </form>
+    <div class="body-wrapper">
+        <div class="main_container">
+            <div class="main">
+                <form id="main-form">
+                    <label for="first name">Имя:</label>
+                    <input type="text" name="first_name" placeholder="Имя" id="first name" required><br><br>
+                    <label for="second name">Фамилия:</label>
+                    <input type="text" name="second_name" placeholder="Фамилия" id="second name" required><br><br>
+                    <label for="phone">Номер телефона:</label>
+                    <input type="number" name="phone_number" placeholder="Номер телефона" id="phone" required><b>11 цифр, начиная с '8'</b><br><br>
+                    <label for="password">Пароль:</label>
+                    <input type="password" name="password" placeholder="Пароль" id="password" required><b>Пароль должен состоять из 6+ символов</b><br><br>
+                    <label for="repass">Проверка пароля:</label>
+                    <input type="password" name="repass" placeholder="Проверка пароля" id="repass" required><b>Подтвердите пароль, указанный выше</b><br><br>
+                    <button type="button" disabled id="registration_button" onclick="isEverythingOk()">Зарегистрироваться</button>
+                </form>
+            </div>
+        </div>
     </div>
   <footer th:insert="~{blocks/footer}"></footer>
     <script th:src="@{/js/registration.js}"></script>

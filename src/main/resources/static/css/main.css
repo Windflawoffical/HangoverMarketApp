@@ -1,28 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Rubik+Doodle+Triangles&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Honk&family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap');
 *{
   margin: 0;
   padding: 0;
-  font-family: "Quick";
+  font-family: "Quicksand0", sans-serif;
 }
 
 body {
   min-height: 100vh;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   flex-direction: column;
 }
 
 .header {
-  margin-top: 15px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   width: 65%;
-  height: 50px;
-  /* line-height: 100px; */
+  min-height: 100px;
+  border-bottom: 2px solid black;
 }
 
 .footer {
   width: 100%;
+  height: 500px;
   background-color: whitesmoke;
   display: flex;
   justify-content: center;
@@ -30,8 +34,32 @@ body {
   color: #000;
   margin-bottom: 0;
   /* margin-top: 50px; */
-  /* border-top: 3px solid black; */
+  border-top: 2px solid black;
   border-bottom:0;
+}
+
+.underheader {
+  display: flex;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.underheader_btn {
+  font-size: 20px;
+  background-color: white;
+  margin-top: -30px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  /* background-color: rgb(140, 140, 140); */
+  border: none;
+  /* height: 50px; */
+  width: 100px;
+  border-radius: 10px;
+  transition-duration: 0.1s;
 }
 
 .body-wrapper {
@@ -48,12 +76,14 @@ body {
 }
 
 .main {
-  margin-left: 30px;
+  min-height: 800px;
+  margin-left: 15px;
   min-height: 280px;
 }
 
 .aside-left {
-  background-color: whitesmoke;
+  max-height: 500px;
+  /* background-color: whitesmoke; */
   /* margin-right: 20px; */
   display: flex;
   flex-direction: column;
@@ -67,6 +97,27 @@ body {
   width: 40%;
 }
 
+.aside_btns_pos {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.aside_btn {
+  box-shadow: 1px 2px 3px black;
+  background-color: rgb(255, 255, 255);
+  text-decoration: none;
+  /* border-width: 1px; */
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  height: 55px;
+  margin-bottom: 15px;
+  transition-duration: 0.2s;
+}
+
+.aside_btn:hover {
+  box-shadow: 4px 8px 16px rgb(94, 94, 94);
+}
 .carousel {
   background-image: url("../images/alco.jpg");
   background-size: cover;
@@ -94,31 +145,67 @@ body {
 }
 
 .carousel_btn:hover {
-  height: 22px;
-  width: 22px;
-  border-radius: 11px;
+  /* height: 22px;
+  width: 22px; */
+  /* border-radius: 11px; */
+  /* border-radius: 1; */
+  box-shadow: 1px 2px 10px rgba(94, 94, 94, 0.5);
   border: solid;
   border-width: 2px;
   border-color: rgb(0, 81, 255);
 }
 
-
 .image {
-  width: 65px;
-  height: 65px;
+  margin-top: 25px;
+  width: 50px;
+  height: 50px;
 }
 
 .cart {
+  display: flex ;
+  margin-right: 15px;
   float: right;
 }
 
 .brand {
+  /* display: flex; */
+  /* flex-shrink: 2; */
+  /* flex-direction: row; */
   float: left;
 }
 
+.search-form_pos {
+  display: flex;
+  margin-top: 25px;
+  margin-right: 25px;
+  height: 50px;
+  /* width: 250px; */
+  float: right;
+}
+
+.search_form {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 300;
+  width: 300px;
+}
+
+.brandimage {
+  float:left;
+  margin-right: 5px;
+  max-height: 80px;
+  width: 80px;
+  padding-bottom: 10px;
+}
+
 .brandname {
-  display: inline-flex;
-  padding-top: 15px;
+
+  float:left;
+  margin-right: 50px;
+  font-size: 50px;
+  font-family: 'Honk', system-ui;
+  margin-top: 25px;
 }
 .avatar {
   float: right;
@@ -135,12 +222,12 @@ a {
   justify-content: center;
 }
 
-img {
+/* img {
   margin-right: 0;
   
   float: left;
   width: 180px;
-}
+} */
 
 #modal-text{
   display: flex;
@@ -155,7 +242,6 @@ img {
   border-radius: 5px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap');
 .card {
     width: 225px;
     min-height: 350px;
@@ -167,7 +253,7 @@ img {
     transition: 0.2s;
 }
 
-.card.card:hover {
+  .card.card:hover {
     box-shadow: 4px 8px 16px rgb(94, 94, 94);
 }
 
@@ -243,17 +329,16 @@ a:active{
 }
 
 .container {
-    width: 100%;
-    max-width: 1000px;
-    padding: 0 15px;
-    margin: 0 auto;
+    margin-bottom: 30px;
+    /* width: 100%; */
+    /* max-width: 1000px; */
+    /* padding: 0 15px; */
+    /* margin: 0 auto; */
     display: grid;
-    width: 100%;
     grid-template-columns: repeat(auto-fill, 225px);
-    justify-content: center;
+    /* justify-content: center; */
     justify-items: center;
-    margin: 0 auto;
-    column-gap: 30px;
+    column-gap: 25px;
     row-gap: 40px;
 }
 
