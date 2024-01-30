@@ -49,6 +49,7 @@ body {
 }
 
 .underheader_btn {
+  
   font-size: 20px;
   background-color: white;
   margin-top: -30px;
@@ -57,10 +58,22 @@ body {
   /* background-color: rgb(140, 140, 140); */
   border: none;
   /* height: 50px; */
-  width: 100px;
+  width: 150px;
   border-radius: 10px;
   transition-duration: 0.1s;
+  display: flex;
 }
+
+.underheader_btn img {
+  width: 50px;
+  float: left;
+}
+
+.underheader_btn span {
+  float: right;
+  margin-top: 32px;
+}
+
 
 .body-wrapper {
   display: flex;
