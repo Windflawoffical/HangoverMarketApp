@@ -31,4 +31,7 @@ public class Alcohol {
     @Column(nullable = false)
     private String manufacturer;
 
+    @Column(nullable = false)
+    private String type;
+
 }

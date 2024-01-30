@@ -1,5 +1,6 @@
 package com.example.hangovermarketwebservice.Controllers;
 
+import com.example.hangovermarketwebservice.Exceptions.BadRequestException;
 import com.example.hangovermarketwebservice.Repositories.AlcoholRepository;
 import com.example.hangovermarketwebservice.Models.Alcohol;
 
@@ -24,53 +25,35 @@ public class AlcoholController {
         return "add";
     }
 
-    //Метод добавления в бд алкоголя с использованием использованием web-страницы - @RequestParam ← application/x-www-form-urlencoded
     @PostMapping("/alcohols/add")
-    public String AddPostAlcohol(@RequestParam String name,
-                                @RequestParam String description,
-                                @RequestParam float price,
-                                @RequestParam String manufacturer)
-    {
-        //@Builder
-        //Запись практически идентична записи "Alcohol alcohol = new Alcohol(name, description, price, manufacturer);"
-        Alcohol alcohol = Alcohol.builder().name(name).description(description).price(price).manufacturer(manufacturer).build();
-        alcoholRepository.save(alcohol);
-            return "redirect:/check";
+    public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol) {
+        if(!alcohol.getName().isBlank() &&
+                !alcohol.getDescription().isBlank() &&
+                alcohol.getPrice() != 0.0f &&
+                !alcohol.getManufacturer().isBlank() &&
+                !alcohol.getType().isBlank()) {
+            alcoholRepository.save(alcohol);
+            return ResponseEntity.ok().body(alcohol);
+        } else {
+            return ResponseEntity.badRequest()
+                    .body("Произошла ошибка при выполнении запроса, проверьте правильность введённых данных и повторите попытку!");
+        }
     }
 
+
     //Метод удаления из таблицы (alcohol) всех записей
-    @GetMapping("/alcohols/delete-alco")
-    public String delete() {
+    @DeleteMapping("/alcohols/delete_all")
+    public ResponseEntity<?> delete() {
         alcoholRepository.deleteAll();
-        return "deleted";
+        return ResponseEntity.ok().body("Все записи успешно удалены!");
     }
 
     //Метод вывода всех записей из таблицы (alcohol)
-    @GetMapping("/alcohols/getall")
-    public String getall(Model model) {
-        List<Alcohol> result = alcoholRepository.findAll();
-        model.addAttribute("all_alc", result);
-        return "getall";
+    @GetMapping("/alcohols/get_all")
+    public ResponseEntity<?> getall() {
+        List<Alcohol> all_alcohol = alcoholRepository.findAll();
+        System.out.println(all_alcohol);
+        return ResponseEntity.ok().body(all_alcohol);
     }
 
-    //Метод добавления в бд алкоголя с использованием json (insomnia) - @RequestBody ← application/json
-    /*
-    json:
-            {
-                "name": "имя",
-                "description": "описание",
-                "price":цена,
-                "manufacturer":"производитель"
-            }
-     */
-    @PostMapping("/alcohols/add_json")
-    public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol) {
-        try {
-            alcoholRepository.save(alcohol);
-            return ResponseEntity.ok().body(alcohol);
-        }
-        catch (DataIntegrityViolationException exceptionHangMarket) {
-            return ResponseEntity.badRequest().body("Wrong name!");
-        }
-    }
 }
