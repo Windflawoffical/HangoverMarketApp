@@ -52,7 +52,6 @@ public class AlcoholController {
     @GetMapping("/alcohols/get_all")
     public ResponseEntity<?> getall() {
         List<Alcohol> all_alcohol = alcoholRepository.findAll();
-        System.out.println(all_alcohol);
         return ResponseEntity.ok().body(all_alcohol);
     }
 
