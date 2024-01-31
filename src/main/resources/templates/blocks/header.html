@@ -1,25 +1,19 @@
 <div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
-
-<div th:fragment="header">
-    <div class="header">
-        <div class="brand">
-            <a href="/"><img class="brandimage" th:src="@{/images/free-icon-beer.png}"/></a>
-            <a href="/"><div class="brandname">Hangover</div></a>
-        </div>
-        <div class="btns">
-            <div class="avatar"><a href="/users/login"><img class="image" th:src="@{/images/free-icon-avatar.png}"></a></div>
-            <div class="cart"><a href="#"><img class="image" th:src="@{/images/free-icon-shoppingcart.png}"></a></div>
-        </div>
-        <form action="" class="search-form_pos">
-            <input type="text" placeholder="поиск" class="search_form">
-        </form>
+<!--da из за этого видать он столько ме  -->
+<!-- <div "> -->
+<div class="header">
+    <div class="brand">
+        <a href="/"><img class="brandimage" th:src="@{/images/free-icon-beer.png}"/></a>
+        <a href="/"><div class="brandname">Hangover</div></a>
     </div>
-    <div class="underheader">
-        <button class="underheader_btn"><a href="#"><img th:src="@{/images/wine-bottle.png}" alt=""><span>Вино</span></a>
-        <button class="underheader_btn"><a href="#"><img th:src="@{/images/kahlua.png}" alt=""><span>Ликер</span></a>
-        <button class="underheader_btn"><a href="#"><img th:src="@{/images/beer.png}" alt=""><span>Пиво</span></a>
-        <button class="underheader_btn"><a href="#"><img th:src="@{/images/vodka.png}" alt=""><span>Водка</span></a>
-        <button class="underheader_btn"><a href="#"><img th:src="@{/images/whiskey.png}" alt=""><span>Виски</span></a>
-        <button class="underheader_btn"><a href="#"><img th:src="@{/images/champagne.png}" alt=""><span>Игристое</span></a>
-      </div>
+    <div style="display: flex; flex:left">
+        <button style="height: 30px;"><a href="/alcohols/add">add</a></button>
+    </div>
+    <div class="btns">
+        <div class="avatar"><a href="/users/login"><img class="image" th:src="@{/images/free-icon-avatar.png}"></a></div>
+        <div class="cart"><a href="#"><img class="image" th:src="@{/images/free-icon-shoppingcart.png}"></a></div>
+    </div>
+    <form action="" class="search-form_pos">
+        <input type="text" placeholder="поиск" class="search_form">
+    </form>
 </div>
