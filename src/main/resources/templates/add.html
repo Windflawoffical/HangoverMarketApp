@@ -12,12 +12,14 @@
         <div class="body-wrapper">
             <div class="main_container">
                 <div class="main">
-                    <form>
-                        <input id="acl_name" type="text" name="name" placeholder="Название алкоголя"><br>
+                    <form class="alc_form">
+                        <input id="alc_name" type="text" name="name" placeholder="Название алкоголя" required><br>
                         <textarea id="alc_description" name="description" placeholder="Описание"></textarea><br>
                         <input id="alc_price" type="number" name="price" placeholder="Цена"><br>
                         <input id="alc_manufacturer" type="text" name="manufacturer" placeholder="Производитель"><br>
-                        <input id="alc_picture" onchange="getFile()" type="file" accept="image/png, image/jpeg"><br>
+                        <input id="alc_type" type="text" placeholder="Тип"><br>
+                        <span>Название картинки должно совпадать с названием товара!</span><br>
+                        <input id="alc_img" type="file" accept="image/png, image/jpg, image/jpeg"><br>
                         <button type="button" onclick="uploadForm()" class="mybtn">Подтвердить</button>
                     </form>
                 </div>
