@@ -1,4 +1,4 @@
-const form = document.querySelector('form');
+const form = document.getElementById("main-form");
 const formSubmit = document.querySelector('button');
 
 form.addEventListener('change', changeFormHandler);

@@ -26,12 +26,15 @@ public class UserController {
     @PostMapping("/users/login")
     public ResponseEntity<?> login(@RequestBody User userfordb)
     {
-        User user = userRepository.findByPhoneNumberAndPassword(userfordb.getPhoneNumber(), userfordb.getPassword());
-        if (user != null) {
-            return ResponseEntity.ok().body(userfordb);
-        } else {
-            return ResponseEntity.badRequest().body("Авторизация провалена, проверьте правильность введённых данных и повторите попытку!");
-        }
+        userRepository.findByPhoneNumberAndPassword(userfordb.getPhoneNumber(), userfordb.getPassword()).
+                ifPresentOrElse((user) -> {
+                    //setUserRoleAuthorized(userfordb) - установить поле Role для пришедшего юзера в authorized
+                    System.out.println("Пользователь успешно авторизован!");
+                }, () -> {
+                    throw new BadRequestException(String.format("Пользователя с таким данными не существует: %s, %s",
+                            userfordb.getPhoneNumber(), userfordb.getPassword()));
+                });
+        return ResponseEntity.ok().body(userfordb);
     }
 
     @GetMapping("/users/registration")
@@ -40,7 +43,7 @@ public class UserController {
     }
 
     @PostMapping("/users/registration")
-    public ResponseEntity<?> registration_json(@RequestBody User userfordb)
+    public ResponseEntity<?> registration(@RequestBody User userfordb)
     {
         userRepository.findByPhoneNumber(userfordb.getPhoneNumber()).ifPresent(user -> {
             throw new BadRequestException(String.format("Пользователь с таким телефонным номером '%s' уже существует!",
