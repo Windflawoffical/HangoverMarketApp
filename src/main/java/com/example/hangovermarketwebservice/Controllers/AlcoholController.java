@@ -27,16 +27,15 @@ public class AlcoholController {
 
     @PostMapping("/alcohols/add")
     public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol) {
-        if(!alcohol.getName().isBlank() &&
-                !alcohol.getDescription().isBlank() &&
-                alcohol.getPrice() != 0.0f &&
-                !alcohol.getManufacturer().isBlank() &&
-                !alcohol.getType().isBlank()) {
+        Alcohol db_alc = alcoholRepository.findByName(alcohol.getName());
+        String img_path = "/resources/static/images/item_images/" + alcohol.getImg();
+        alcohol.setImg(img_path);
+        if (db_alc == null) { //если в бд нет такой записи      
             alcoholRepository.save(alcohol);
             return ResponseEntity.ok().body(alcohol);
-        } else {
-            return ResponseEntity.badRequest()
-                    .body("Произошла ошибка при выполнении запроса, проверьте правильность введённых данных и повторите попытку!");
+        } 
+        else {
+            return ResponseEntity.badRequest().body("Такой товар уже существует!");
         }
     }
 
