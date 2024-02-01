@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/registration.css}">
 </head>
 <body>
     <header th:insert="~{blocks/header}"></header>
     <div class="body-wrapper">
         <div class="main_container">
             <div class="main">
-                <form id="main-form">
-                    <label for="first name">Имя:</label>
-                    <input type="text" name="first_name" placeholder="Имя" id="first name" required><br><br>
-                    <label for="second name">Фамилия:</label>
-                    <input type="text" name="second_name" placeholder="Фамилия" id="second name" required><br><br>
-                    <label for="phone">Номер телефона:</label>
-                    <input type="number" name="phone_number" placeholder="Номер телефона" id="phone" required><b>11 цифр, начиная с '8'</b><br><br>
-                    <label for="password">Пароль:</label>
-                    <input type="password" name="password" placeholder="Пароль" id="password" required><b>Пароль должен состоять из 6+ символов</b><br><br>
-                    <label for="repass">Проверка пароля:</label>
-                    <input type="password" name="repass" placeholder="Проверка пароля" id="repass" required><b>Подтвердите пароль, указанный выше</b><br><br>
-                    <button type="button" disabled id="registration_button" onclick="isEverythingOk()">Зарегистрироваться</button>
+                <form class="register_form">
+                    <h1 class="title_form">Регистрация</h1>
+                    <div class="form_fileds">
+                        <input type="text" name="first_name" placeholder="Имя" id="first_name">
+                    </div>
+                    <div class="form_fileds">
+                        <input type="text" name="second_name" placeholder="Фамилия" id="second_name">
+                    </div>
+                    <div class="form_fileds">
+                        <input type="text" name="nickname" placeholder="Ник" id="nickname">
+                    </div>
+                    <div class="form_fileds">
+                        <input type="text" name="phone" placeholder="8(000)000-00-00" id="phone">
+                    </div>
+                    <div class="form_fileds">
+                        <input type="text" name="pass" placeholder="Пароль" id="pass">
+                    </div>
+                    <div class="form_fileds">
+                        <input type="text" name="repass" placeholder="Повторите пароль" id="repass">
+                    </div>                      
+                    <button type="button" class="registration_button" onclick="isEverythingOk()">Зарегистрироваться</button>
                 </form>
             </div>
         </div>
