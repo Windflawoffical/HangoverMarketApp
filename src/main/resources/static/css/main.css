@@ -217,22 +217,68 @@ body {
   float: left;
 }
 
-.search-form_pos {
-  display: flex;
-  margin-top: 25px;
-  margin-right: 25px;
-  height: 50px;
-  /* width: 250px; */
-  float: right;
+.wrapper {
+    margin: 10px auto;
 }
 
-.search_form {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 20px;
-  font-weight: 300;
-  width: 300px;
+h2 {
+    text-align: center;
+    color: #fff;
+    margin: 0;
 }
+
+input {
+    width: 100%;
+    padding: 20px;
+}
+
+.form {
+    display: flex;
+    margin-top: 25px;
+    margin-right: 25px;
+    height: 50px;
+    /* width: 250px; */
+    float: right;
+    position: static;
+
+}
+
+
+input.search {
+    margin: 0;
+    text-align: center;
+    outline: 0;
+    border: 10px solid #f7f7f7;
+    width: 120%;
+    left: -18%;
+    position: fixed;
+    z-index: 2;
+    border-radius: 4px;
+    font-size: 40px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+}
+
+.options {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.options li {
+    background: white;
+    list-style: none;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+    margin: 0;
+    padding: 18px;
+    text-transform: capitalize;
+}
+
+.hl {
+    background: #ffc600;
+}
+
+
 
 .brandimage {
   float:left;
