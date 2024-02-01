@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/registration.css}">
     <title>Title</title>
 </head>
 <body>
@@ -11,14 +12,18 @@
     <div class="body-wrapper">
         <div class="main_container">
             <div class="main">
-                <form>
-                    <label for="phone">Номер телефона:</label>
-                    <input type="number" name="phone_number" placeholder="Номер телефона" id="phone"><b>11 цифр, начиная с '8'</b><br><br>
-                    <label for="password">Пароль:</label>
-                    <input type="password" name="password" placeholder="Пароль" id="password"><b>Пароль должен состоять из 6+ символов</b><br><br>
+                <form class="register_form">
+                    <h1 class="title_form">Вход</h1>
                     <div>
-                        <button type="button" onclick="isEverythingOk()">Вход</button>
-                        <button type="button" onclick="window.location = '/users/registration';">Регистрация</button>
+                        <div class="form_fileds">
+                            <input type="number" name="phone" id="phone" placeholder="8(000)000-00-00">
+                        </div>
+                        <div class="form_fileds">
+                           <input type="text" placeholder="Пароль">
+                        </div>
+                    <button type="button" disabled class="registration_button" onclick="isEverythingOk()">Войти</button><br>
+                    </div>
+                        <button type="button" class="registration_button" onclick="window.location = '/users/registration';">Регистрация</button>
                     </div>
                 </form>
             </div>
