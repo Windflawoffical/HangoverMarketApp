@@ -1,27 +1,50 @@
+
+const fileInput = document.getElementById("alc_img");
+const preview = document.querySelector("img.preview");
+const reader = new FileReader();
+
+function loadImg(event) {
+    if (event.type = "load") {
+        preview.src = reader.result;
+    }
+}
+
+function URLImg(e) {
+    const selectedFile = fileInput.files[0];
+    if (selectedFile) {
+        reader.addEventListener("load", loadImg);
+        reader.readAsDataURL(selectedFile);
+    }
+}
+
+fileInput.addEventListener("change", URLImg)
+
 function uploadForm() {
-    let name = document.getElementById("alc_name").value;
+
+    let alc_name = document.getElementById("alc_name").value;
     let description = document.getElementById("alc_description").value;
     let price = document.getElementById("alc_price").value;
     let manufacturer = document.getElementById("alc_manufacturer").value;
     let type = document.getElementById("alc_type").value;
-    let image = document.getElementById("alc_img").files[0];
+    let imgData = reader.result;
     
-    if (name == "" || description == "" || price == ""
-    || manufacturer == "" || type == "" || image==undefined) {
+
+    if (alc_name == "" || description == "" || price == ""
+    || manufacturer == "" || type == "") {
         alert("Проверьте правильность введённых данных!");
         return;
     }
 
-    console.log(image.name);
     let alcohol = {
-        name: name,
+        name: alc_name,
         description: description,
         price: price,
         manufacturer: manufacturer,
         type: type,
-        img: name + '.' + image.name.split('.').pop()
+        img: imgData
     }
 
+    Promise.all([
     fetch("/alcohols/add", {method: "POST",
                             body: JSON.stringify(alcohol),
                             headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -33,13 +56,12 @@ function uploadForm() {
                                     alert("Товар добавлен в базу данных!");
                                     return response.json;
                                 }
-                            })
+                            }),
+    // fetch("/alcohols/imgHandler"), {}
+
+    ])
 
     console.log(alcohol);
-    name = '';
-    description = '';
-    price = '';
-    manufacturer = '';
-    type = '';
-    image = '';
+   
 }
+
