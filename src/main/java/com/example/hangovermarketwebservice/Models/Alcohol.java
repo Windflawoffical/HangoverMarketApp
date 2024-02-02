@@ -34,4 +34,6 @@ public class Alcohol {
     @Column(nullable = false)
     private String type;
 
+    @Column(nullable = false)
+    private String img;
 }

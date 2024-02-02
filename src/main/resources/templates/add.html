@@ -9,17 +9,23 @@
     </head>
     <body>
         <header th:insert="~{blocks/header}"></header>
-        <div class="main center">
-            <form id="main-form" action="/alcohols/add" method="post">
-                <div class="control">
-                    <input type="text" name="name" placeholder="Название алкоголя"><br>
-                    <textarea name="description" placeholder="Описание" class="dis"></textarea><br>
-                    <input type="number" name="price" placeholder="Цена"><br>
-                    <input type="text" name="manufacturer" placeholder="Производитель"><br>
-                    <button type="submit" class="mybtn">Подтвердить</button>
+        <div class="body-wrapper">
+            <div class="main_container">
+                <div class="main">
+                    <form class="alc_form">
+                        <input id="alc_name" type="text" name="name" placeholder="Название алкоголя" required><br>
+                        <textarea id="alc_description" name="description" placeholder="Описание"></textarea><br>
+                        <input id="alc_price" type="number" name="price" placeholder="Цена"><br>
+                        <input id="alc_manufacturer" type="text" name="manufacturer" placeholder="Производитель"><br>
+                        <input id="alc_type" type="text" placeholder="Тип"><br>
+                        <input id="alc_img" type="file" accept="image/png, image/jpg, image/jpeg"><br>
+                        <img src="" class="preview" height="200" alt="Image preview" /><br>
+                        <button type="button" onclick="uploadForm()" class="mybtn">Подтвердить</button>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
         <footer th:insert="~{blocks/footer}"></footer>        
+        <script th:src="@{/js/add.js}"></script>
     </body>
 </html>
