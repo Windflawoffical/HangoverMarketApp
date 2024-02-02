@@ -239,7 +239,7 @@ input {
     height: 50px;
     /* width: 250px; */
     float: right;
-    position: static;
+    /*position: static;*/
 
 }
 
@@ -251,7 +251,7 @@ input.search {
     border: 10px solid #f7f7f7;
     width: 120%;
     left: -18%;
-    position: fixed;
+    position: static;
     z-index: 2;
     border-radius: 4px;
     font-size: 40px;
