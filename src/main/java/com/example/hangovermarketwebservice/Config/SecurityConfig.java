@@ -1,6 +1,6 @@
 package com.example.hangovermarketwebservice.Config;
 
-import com.example.hangovermarketwebservice.Service.MyUserDetailsService;
+import com.example.hangovermarketwebservice.Services.MyUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
