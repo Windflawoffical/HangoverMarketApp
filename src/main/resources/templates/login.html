@@ -9,19 +9,27 @@
 </head>
 <body>
     <header th:insert="~{blocks/header}"></header>
+
+<!--    <div th:if="${param.error}">-->
+<!--        <div class="alert alert-danger">Invalid Email or Password</div>-->
+<!--    </div>-->
+    <div th:if="${param.logout}">
+        <div class="alert alert-success"> You have been logged out.</div>
+    </div>
+
     <div class="body-wrapper">
         <div class="main_container">
             <div class="main">
-                <form class="register_form">
+                <form class="register_form" th:action="@{/users/login}" th:method="POST">
                     <h1 class="title_form">Вход</h1>
                     <div>
                         <div class="form_fileds">
-                            <input type="number" name="phone" id="phone" placeholder="8(000)000-00-00">
+                            <input type="text" name="username" id="username" placeholder="Логин">
                         </div>
                         <div class="form_fileds">
-                           <input type="text" placeholder="Пароль" id="password">
+                           <input type="text" name="password" placeholder="Пароль" id="password">
                         </div>
-                    <button type="button" class="registration_button" onclick="isEverythingOk()">Войти</button><br>
+                    <button type="submit" class="registration_button">Войти</button><br>
                     </div>
                     <div>
                         <button type="button" class="registration_button" onclick="window.location = '/users/registration';">Регистрация</button>
