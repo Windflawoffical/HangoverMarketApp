@@ -6,6 +6,11 @@
         <a href="/"><img class="brandimage" th:src="@{/images/free-icon-beer.png}"/></a>
         <a href="/"><div class="brandname">Hangover</div></a>
     </div>
+
+    <form th:action="@{/logout}" th:method="POST">
+        <button type="submit">Logout</button>
+    </form>
+
     <div class="btns">
         <div class="avatar"><a href="/users/login"><img class="image" th:src="@{/images/free-icon-avatar.png}"></a></div>
         <div class="cart"><a href="#"><img class="image" th:src="@{/images/free-icon-shoppingcart.png}"></a></div>
@@ -13,4 +18,5 @@
     <form action="" class="search-form_pos">
         <input type="text" placeholder="поиск" class="search_form">
     </form>
+    </div>
 </div>
