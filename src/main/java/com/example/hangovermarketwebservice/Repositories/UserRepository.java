@@ -10,6 +10,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //Проверка: существует ли пользователь с таким телефонным номером в бд?
     Optional<User> findByPhoneNumber(Long PhoneNumber);
 
-    User findByPhoneNumberAndPassword(Long PhoneNumber, String password);
+    Optional<User> findByPhoneNumberAndPassword(Long PhoneNumber, String password);
 
 }

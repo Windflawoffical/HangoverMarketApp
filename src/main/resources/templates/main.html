@@ -3,21 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
     <title>Main page</title>
 <!--    <link rel="stylesheet" th:href="@{/css/main.css}">-->
 </head>
 <body>
     <header th:insert="~{blocks/header}"></header>
-    <div class="underheader">
-      <button class="underheader_btn"><a href="#"><img src="images/wine-bottle.png" alt=""><span>Вино</span></a>
-      <button class="underheader_btn"><a href="#"><img src="images/kahlua.png" alt=""><span>Ликер</span></a>
-      <button class="underheader_btn"><a href="#"><img src="images/beer.png" alt=""><span>Пиво</span></a>
-      <button class="underheader_btn"><a href="#"><img src="images/vodka.png" alt=""><span>Водка</span></a>
-      <button class="underheader_btn"><a href="#"><img src="images/whiskey.png" alt=""><span>Виски</span></a>
-      <button class="underheader_btn"><a href="#"><img src="images/champagne.png" alt=""><span>Игристое</span></a>
-
-    </div>
+    <div th:insert="~{blocks/underheader}"></div>
     <div class="body-wrapper">
       <div class="aside-left">
         <div class="aside_btns_pos">
