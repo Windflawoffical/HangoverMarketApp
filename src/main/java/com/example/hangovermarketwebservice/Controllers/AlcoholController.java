@@ -58,8 +58,11 @@ public class AlcoholController {
 
     //Метод вывода всех записей из таблицы (alcohol)
     @GetMapping("/alcohols/get_all")
-    public ResponseEntity<?> getall() {
+    public ResponseEntity<?> getall() throws IOException {
         List<Alcohol> all_alcohol = alcoholRepository.findAll();
+        for (Alcohol alcohol : all_alcohol) {
+            alcohol.setImg(imageHandler.EncodeImage(alcohol.getImg()));
+        }
         return ResponseEntity.ok().body(all_alcohol);
     }
 
