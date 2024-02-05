@@ -1,6 +1,6 @@
 package com.example.hangovermarketwebservice.Config;
 
-import com.example.hangovermarketwebservice.Service.MyUserDetailsService;
+import com.example.hangovermarketwebservice.Services.MyUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -36,7 +36,7 @@ public class SecurityConfig {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
                         //.requestMatchers("/**").permitAll()
-                        .requestMatchers("/alcohols/**").authenticated()
+                        .requestMatchers("/alcohols/add").authenticated()
                         .anyRequest().permitAll())
 
                 //.formLogin(Customizer.withDefaults())

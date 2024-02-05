@@ -1,4 +1,4 @@
-package com.example.hangovermarketwebservice.Service;
+package com.example.hangovermarketwebservice.Services;
 
 import com.example.hangovermarketwebservice.Config.MyUserDetails;
 import com.example.hangovermarketwebservice.Models.User;
