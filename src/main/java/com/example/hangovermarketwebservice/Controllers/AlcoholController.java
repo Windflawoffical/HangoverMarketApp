@@ -1,27 +1,17 @@
 package com.example.hangovermarketwebservice.Controllers;
 
-import com.example.hangovermarketwebservice.Exceptions.BadRequestException;
 import com.example.hangovermarketwebservice.Repositories.AlcoholRepository;
+import com.example.hangovermarketwebservice.Services.ImageUploadSendHandlerService;
 import com.example.hangovermarketwebservice.Models.Alcohol;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Base64;
 import java.util.List;
-
-import javax.imageio.ImageIO;
 
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 
 @Controller
@@ -30,29 +20,26 @@ public class AlcoholController {
     @Autowired
     private AlcoholRepository alcoholRepository;
 
+    @Autowired
+    private ImageUploadSendHandlerService imageHandler;
+
     @GetMapping("/alcohols/add")
     public String AddAlcohol(Model model) {
         return "add";
     }
 
-    private void DecodeAndSave(String base64Img, String path) throws IOException {
-        // System.out.println(base64Img);
-        byte[] decoded = Base64.getDecoder().decode(base64Img);
-        ByteArrayInputStream bis = new ByteArrayInputStream(decoded);
-        var image = ImageIO.read(bis);
-        bis.close();
-        File saved = new File(path);
-        ImageIO.write(image, "png", saved);
-    }
-
+    // Метод добавления товара в базу данных + сохранение картинки товара на диске
     @PostMapping("/alcohols/add")
     public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol) throws IOException {
+
         String alcoholName = alcohol.getName();
         var base64 = alcohol.getImg().split(",")[1];
         Alcohol db_alc = alcoholRepository.findByName(alcoholName);
         String img_path = "./src/main/resources/static/images/item_images/" + alcoholName + ".png";
+
+        imageHandler.DecodeAndSave(base64, img_path);
         alcohol.setImg(img_path);
-        DecodeAndSave(base64, img_path);
+
         if (db_alc == null) { //если в бд нет такой записи      
             alcoholRepository.save(alcohol);
             return ResponseEntity.ok().body(alcohol);
@@ -61,12 +48,6 @@ public class AlcoholController {
             return ResponseEntity.badRequest().body("Такой товар уже существует!");
         }
     }
-
-    // @PostMapping("alcoholc/imgHandler")
-    // public void upload(@RequestParam MultipartFile img) {
-    //     Files.write(Paths.get(, null))
-    // }
-
 
     //Метод удаления из таблицы (alcohol) всех записей
     @DeleteMapping("/alcohols/delete_all")
@@ -77,8 +58,11 @@ public class AlcoholController {
 
     //Метод вывода всех записей из таблицы (alcohol)
     @GetMapping("/alcohols/get_all")
-    public ResponseEntity<?> getall() {
+    public ResponseEntity<?> getall() throws IOException {
         List<Alcohol> all_alcohol = alcoholRepository.findAll();
+        for (Alcohol alcohol : all_alcohol) {
+            alcohol.setImg(imageHandler.EncodeImage(alcohol.getImg()));
+        }
         return ResponseEntity.ok().body(all_alcohol);
     }
 

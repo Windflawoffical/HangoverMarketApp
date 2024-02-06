@@ -1,25 +1,26 @@
 <div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
-    <div th:fragment="header">
-        <div class="header">
-            <div class="brand">
-                <a href="/"><img class="brandimage" th:src="@{/images/free-icon-beer.png}"/></a>
-                <a href="/">
-                    <div class="brandname">Hangover</div>
-                </a>
-            </div>
-            <div class="btns">
-                <div class="avatar"><a href="/users/login"><img class="image" th:src="@{/images/free-icon-avatar.png}"></a>
-                </div>
-                <div class="cart"><a href="#"><img class="image" th:src="@{/images/free-icon-shoppingcart.png}"></a>
-                </div>
-            </div>
-            <div class="wrapper">
-                <form class="form"><input type="text" class="search" placeholder="поиск..."/>
-                    <ul class="options"></ul>
-                </form>
-            </div>
-            <script th:src="@{/js/search.js}"></script>
+<!--da из за этого видать он столько ме  -->
+<!-- <div "> -->
+<div class="header">
+    <div class="brand">
+        <a href="/"><img class="brandimage" th:src="@{/images/free-icon-beer.png}"/></a>
+        <a href="/"><div class="brandname">Hangover</div></a>
+    </div>
 
-        </div>
+    <form th:action="@{/logout}" th:method="POST">
+        <button type="submit">Logout</button>
+    </form>
+
+    <div class="btns">
+        <div class="avatar"><a href="/users/login"><img class="image" th:src="@{/images/free-icon-avatar.png}"></a></div>
+        <div class="cart"><a href="#"><img class="image" th:src="@{/images/free-icon-shoppingcart.png}"></a></div>
+    </div>
+    <div class="wrapper">
+        <form class="form"><input type="text" class="search" placeholder="поиск..."/>
+            <ul class="options"></ul>
+        </form>
+    </div>
+    <script th:src="@{/js/search.js}"></script>
+
     </div>
 </div>

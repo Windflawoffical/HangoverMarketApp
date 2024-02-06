@@ -4,7 +4,6 @@ package com.example.hangovermarketwebservice.Models;
 import jakarta.persistence.*;
 import lombok.*;
 
-//TODO: Реализовать ролевую модель.
 @Setter
 @Getter
 @Builder
@@ -24,7 +23,13 @@ public class User {
     private Long phoneNumber;
     @Column(nullable = false)
     private String password;
+    @Column(name = "username", unique = true, nullable = false)
+    private String username;
     private String firstName;
     private String secondName;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
 
 }
+

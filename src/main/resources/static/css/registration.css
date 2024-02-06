@@ -39,7 +39,28 @@ input:focus{
     min-width: 300px;
 }
 
-.form_fileds{
+.register_form > input {
+    margin-bottom: 13px;
+}
+
+.register_form > textarea {
+    margin-bottom: 13px;
+    color: black;
+    min-height: 45px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    border-radius: 5px;
+    border: 2px solid rgb(165, 165, 165);
+    padding-left: 25px;
+}
+
+.preview {
+height: 200px;
+margin-bottom: 13px;
+}
+
+.form_fields{
     margin-bottom: 13px;
 }
 
