@@ -19,7 +19,6 @@ input{
     line-height: 16px;
     border-radius: 5px;
     border: 2px solid rgb(165, 165, 165);
-    padding-left: 25px;
 }
 
 input:focus{
@@ -41,6 +40,7 @@ input:focus{
 
 .register_form > input {
     margin-bottom: 13px;
+    padding-left: 25px;
 }
 
 .register_form > textarea {
@@ -58,10 +58,6 @@ input:focus{
 .preview {
 height: 200px;
 margin-bottom: 13px;
-}
-
-.form_fields{
-    margin-bottom: 13px;
 }
 
 .registration_button {

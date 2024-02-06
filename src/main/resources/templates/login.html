@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,18 +22,10 @@
             <div class="main">
                 <form class="register_form" th:action="@{/users/login}" th:method="POST">
                     <h1 class="title_form">Вход</h1>
-                    <div>
-                        <div class="form_fields">
-                            <input type="text" name="username" id="username" placeholder="Логин">
-                        </div>
-                        <div class="form_fields">
-                           <input type="text" name="password" placeholder="Пароль" id="password">
-                        </div>
-                    <button type="submit" class="registration_button">Войти</button><br>
-                    </div>
-                    <div>
+                    <input type="text" name="username" id="username" placeholder="Логин">
+                    <input type="text" name="password" placeholder="Пароль" id="password">
+                        <button type="submit" class="registration_button">Войти</button><br>
                         <button type="button" class="registration_button" onclick="window.location = '/users/registration';">Регистрация</button>
-                    </div>
                 </form>
             </div>
         </div>
