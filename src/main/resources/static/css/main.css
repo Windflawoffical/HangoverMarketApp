@@ -32,7 +32,7 @@ body {
 
  .footer {
   width: 100%;
-  height: 500px;
+  height: 300px;
   background-color: whitesmoke;
   display: flex;
   justify-content: center;
@@ -42,6 +42,7 @@ body {
   margin-top: 50px;
   border-top: 2px solid black;
   border-bottom:0;
+  background: linear-gradient(rgb(255, 255, 149), rgb(255, 89, 135));
 } 
 
 @media(max-width: 1300px){
@@ -395,3 +396,19 @@ a:active{
 .card {
     padding: 20px 0;
 }
+
+.footer_col{
+  display: flex;
+  font-family: 'Sunflower', sans-serif;
+}
+
+.col{
+  padding-left: 150px;
+  padding-top: 107px;
+
+}
+
+.col:first-child{
+  padding-left: 0px;
+}
+
