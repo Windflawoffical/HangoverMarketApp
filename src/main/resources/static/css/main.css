@@ -63,7 +63,7 @@ body {
   margin-right: auto;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 35px;
+  margin-top: 45px;
 }
 
 .underheader_btn {
@@ -200,8 +200,13 @@ body {
 
 .image {
   margin-top: 25px;
-  width: 50px;
+  /*width: 50px;*/
   height: 50px;
+  border: none;
+}
+
+.image > img {
+  width: 50px;
 }
 
 .cart {
@@ -252,7 +257,7 @@ body {
   /* font-family: 'Sunflower', sans-serif; */
   margin-top: 25px;
 }
-.avatar {
+.signin_out {
   float: right;
 }
 a {
