@@ -6,6 +6,7 @@ import com.example.hangovermarketwebservice.Models.Alcohol;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,24 @@ public class AlcoholController {
     @Autowired
     private ImageUploadSendHandlerService imageHandler;
 
+//    @GetMapping("/alcohols/{id}")
+//    public String AlcoholById(@PathVariable long id) {
+//        return "alcoholbyid";
+//    }
+
+    @GetMapping("/alcohols/getBy{id}")
+    public ResponseEntity<?> getById(@PathVariable long id) throws IOException {
+        Optional<Alcohol> alcohol = alcoholRepository.findById(id);
+        alcohol.get().setImg(imageHandler.EncodeImage(alcohol.get().getImg()));
+        return ResponseEntity.ok().body(alcohol);
+    }
+
+    @GetMapping("/alcohols/{id}")
+    public String getPageById(@PathVariable long id) {
+        return "alcoholbyid";
+    }
+
+
     @GetMapping("/alcohols/add")
     public String AddAlcohol(Model model) {
         return "add";
@@ -32,19 +51,15 @@ public class AlcoholController {
     @PostMapping("/alcohols/add")
     public ResponseEntity<?> AddAlcohol (@RequestBody Alcohol alcohol) throws IOException {
 
-        String alcoholName = alcohol.getName();
-        var base64 = alcohol.getImg().split(",")[1];
-        Alcohol db_alc = alcoholRepository.findByName(alcoholName);
-        String img_path = "./src/main/resources/static/images/item_images/" + alcoholName + ".png";
-
-        imageHandler.DecodeAndSave(base64, img_path);
-        alcohol.setImg(img_path);
-
-        if (db_alc == null) { //если в бд нет такой записи      
+        Alcohol db_alc = alcoholRepository.findByName(alcohol.getName());
+        if (db_alc == null) {
+            var base64 = alcohol.getImg().split(",")[1];
+            String img_path = "./src/main/resources/static/images/item_images/" + alcohol.getName() + ".png";
+            imageHandler.DecodeAndSave(base64, img_path);
+            alcohol.setImg(img_path);
             alcoholRepository.save(alcohol);
             return ResponseEntity.ok().body(alcohol);
-        } 
-        else {
+        } else {
             return ResponseEntity.badRequest().body("Такой товар уже существует!");
         }
     }

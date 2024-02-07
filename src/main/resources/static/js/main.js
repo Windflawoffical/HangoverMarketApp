@@ -8,7 +8,6 @@ fetch("/alcohols/get_all", {
     if(!response.ok) {
         throw new Error("Your response status code: " + response.status);
     } else {
-        alert("По идее, в будущем всё должно показаться на экране, ждите)")
         return response.json();
         }
     });

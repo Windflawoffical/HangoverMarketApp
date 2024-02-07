@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link th:href="@{/css/registration.css}" rel="stylesheet"/>
+</head>
+<body>
+    <header th:insert="~{blocks/header}"></header>
+    <div th:insert="~{blocks/underheader}"></div>
+
+    <div class="our_full_product">
+        <div class="our_image">
+            <img id="image" class="our_image">
+        </div>
+        <div class="spans">
+            <span>Название:</span><br>
+            <span>Цена:</span><br>
+            <span>Производитель:</span><br>
+            <span>Тип алкоголя:</span><br>
+            <div class="our_description">
+                <span>Описание:</span><br>
+                <h1 class="purples" id="description" style="font-size: 28px;font-weight: normal;"></h1>
+            </div>
+        </div>
+        <div class="h1s">
+            <h1 id="name"></h1>
+            <h1 id="price"></h1>
+            <h1 id="manufacturer"></h1>
+            <h1 id="type"></h1>
+        </div>
+    </div>
+
+    <script th:src="@{/js/getById.js}"></script>
+    <footer th:insert="~{blocks/footer}"></footer>
+</body>
+</html>
