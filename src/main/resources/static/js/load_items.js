@@ -15,7 +15,7 @@ function create_card(id, img, name, price) {
     `
         <div class="card">
             <div class="card_top">
-                <a href="id=${id}" class="card_img">
+                <a href="alcohols/${id}" class="card_img">
                     <img class="card_img" src="data:image/png;base64,${img}" alt="beluga" width="220px">
                 </a>
             </div>

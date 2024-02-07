@@ -1,9 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;700&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 .title_form {
     color: black;
     font-size: 20px;
@@ -36,11 +31,14 @@ input:focus{
     justify-content: center;
     margin: 50px 0 0 45%;
     min-width: 300px;
+    box-sizing: border-box;
+
 }
 
 .register_form > input {
     margin-bottom: 13px;
     padding-left: 25px;
+    box-sizing: border-box;
 }
 
 .register_form > textarea {

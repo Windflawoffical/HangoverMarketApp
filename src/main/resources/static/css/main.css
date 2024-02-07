@@ -114,6 +114,84 @@ body {
   margin-right: auto;
 }
 
+.our_description {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  border-radius: 4px;
+  max-height: 256px;
+}
+
+.our_full_product {
+  display: flex;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 1px 2px 3px black;
+  border-radius: 4px;
+}
+
+.our_image {
+  width: 512px;
+  height: 512px;
+}
+
+
+.our_image image {
+  max-height:100%;
+  max-width:100%;
+}
+
+.spans {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: normal;
+  text-align: left;
+  line-height: 2;
+  max-height: 256px;
+  font-family: cursive;
+}
+
+.our_description {
+    background: #fff;
+    font-family: Montserrat, sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #000000;
+    padding: 40px;
+    position: absolute;
+    right: 18%;
+    left: 45%;
+    margin-top: 10px;
+    height: 180px;
+    word-wrap: break-word;
+    box-shadow:
+        inset #d800ff 0 0 0 1px,
+        inset #cc00ff 0 0 0 5px,
+        inset #dd82ed 0 0 0 10px,
+        inset #bd1f8c 0 0 0 11px,
+        inset #ffa500 0 0 0 16px,
+        inset #b1a732 0 0 0 17px,
+        inset #ffd400 0 0 0 21px,
+        inset #f2f503 0 0 0 22px;
+}
+
+
+.h1s {
+  display: inline-block;
+  white-space: nowrap;
+  position: absolute;
+  right: 18%;
+  line-height: 2;
+  max-height: 256px;
+  font-family: cursive;
+}
+
+.h1s h1 {
+  font-size: 28px;
+  font-weight: normal;
+  text-align: right;
+}
+
 .main_container {
   min-width: 75%;
 }
