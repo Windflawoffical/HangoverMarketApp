@@ -1,17 +1,15 @@
 const api =
-    `https://gist.githubusercontent.com/VasilyMur/43ef6df83bba694f871f11a16ed7556d/raw/b6edff674e35452d6c57ec64177a558f7adb432e/moscowSubway.json`;
+    `/alcohols/get_all`;
 
 const stations = [];
-
 fetch(api)
     .then(res => res.json())
     .then(data => {
 
         console.log('data >>>> ', data);
+        data.forEach(pos => {stations.push(pos)})
 
-        data.forEach(line => {
-            stations.push(...line.stations);
-        })
+
     });
 
 const searchInput = document.querySelector('.search');
@@ -42,7 +40,7 @@ function displayOptions() {
 
             return `<li><span>${stationName}</span></li>`;
         })
-        .slice(0, 10)
+        .slice(0, 5)
         .join('');
 
     searchOptions.innerHTML = this.value ? html : null;
