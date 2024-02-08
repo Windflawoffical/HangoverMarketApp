@@ -2,9 +2,9 @@ window.addEventListener("load", load_items())
 card_container = document.getElementsByClassName("container")[0];
 console.log(card_container);
 
-async function get_all() {
+async function get_all_wine() {
     console.log("Ready!");
-    const response = await fetch("/alcohols/get_all");
+    const response = await fetch("/alcohols/get_all_wine");
 
     var data = await response.json();
     return data;
@@ -12,11 +12,11 @@ async function get_all() {
 
 function create_card(id, img, name, price) {
     console.log(img, name, price);
-    const card_item = 
+    const card_item =
     `
         <div class="card">
             <div class="card_top">
-                <a href="alcohols/${id}" class="card_img">
+                <a href="${id}" class="card_img">
                     <img class="card_img" src="data:image/png;base64,${img}" alt="beluga" width="220px">
                 </a>
             </div>
@@ -31,8 +31,8 @@ function create_card(id, img, name, price) {
 }
 
 async function load_items() {
-    all =  await get_all();
-    for (let i = 0; i < 3; i++) {
+    all =  await get_all_wine();
+    for (let i = 0; i < all.length; i++) {
         const element = all[i];
         var id = element.id;
         var description = element.description;

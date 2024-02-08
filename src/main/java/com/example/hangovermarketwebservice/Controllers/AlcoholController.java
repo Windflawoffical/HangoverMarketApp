@@ -1,5 +1,6 @@
 package com.example.hangovermarketwebservice.Controllers;
 
+import com.example.hangovermarketwebservice.Models.Type;
 import com.example.hangovermarketwebservice.Repositories.AlcoholRepository;
 import com.example.hangovermarketwebservice.Services.ImageUploadSendHandlerService;
 import com.example.hangovermarketwebservice.Models.Alcohol;
@@ -24,10 +25,50 @@ public class AlcoholController {
     @Autowired
     private ImageUploadSendHandlerService imageHandler;
 
-//    @GetMapping("/alcohols/{id}")
-//    public String AlcoholById(@PathVariable long id) {
-//        return "alcoholbyid";
-//    }
+
+    @GetMapping("/alcohols/get_all_{type}")
+    public ResponseEntity<?> get_all_by_type(@PathVariable Type type) throws IOException {
+        List<Alcohol> all_alcohol = alcoholRepository.findByType(type);
+        for (Alcohol alcohol : all_alcohol) {
+            alcohol.setImg(imageHandler.EncodeImage(alcohol.getImg()));
+        }
+        return ResponseEntity.ok().body(all_alcohol);
+    }
+
+    @GetMapping("/alcohols/wine")
+    public String pageForWines() {
+        return "wine";
+    }
+
+    @GetMapping("/alcohols/liquor")
+    public String pageForliquor() {
+        return "liquor";
+    }
+
+
+    @GetMapping("/alcohols/beer")
+    public String pageForbeer() {
+        return "beer";
+    }
+
+
+    @GetMapping("/alcohols/vodka")
+    public String pageForvodka() {
+        return "vodka";
+    }
+
+
+    @GetMapping("/alcohols/whiskey")
+    public String pageForwhiskey() {
+        return "whiskey";
+    }
+
+
+    @GetMapping("/alcohols/sparkling")
+    public String pageForsparkling() {
+        return "sparkling";
+    }
+
 
     @GetMapping("/alcohols/getBy{id}")
     public ResponseEntity<?> getById(@PathVariable long id) throws IOException {
@@ -63,6 +104,7 @@ public class AlcoholController {
             return ResponseEntity.badRequest().body("Такой товар уже существует!");
         }
     }
+
 
     //Метод удаления из таблицы (alcohol) всех записей
     @DeleteMapping("/alcohols/delete_all")

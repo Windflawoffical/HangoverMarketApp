@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main page</title>
     <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link th:href="@{/css/registration.css}" rel="stylesheet"/>
 </head>
 <body>
     <header th:insert="~{blocks/header}"></header>
@@ -36,18 +37,7 @@
         <div class="main">
           <section class="cards">
             <div class="container">
-                <div class="card">
-                    <div class="card_top">
-                        <a href="#" class="card_img">
-                            <img class="card_img" src="/images/transatlantic.jpg" alt="beluga" width="220px">
-                        </a>
-                    </div>
-                    <div class="card_bottom">
-                        <div class="card_price">1.999</div>
-                        <a href="#" class="card_title">Beluga Transatlantic Racing — специальная серия водки Beluga</a>
-                        <a href="#" class="card_btn">В корзину</a>
-                    </div>
-                </div>
+<!--                    сюда происходит вставка из js файла-->
             </div>
           </section>
       </div>

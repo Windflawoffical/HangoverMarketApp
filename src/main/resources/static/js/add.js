@@ -25,7 +25,32 @@ function uploadForm() {
     let description = document.getElementById("alc_description").value;
     let price = document.getElementById("alc_price").value;
     let manufacturer = document.getElementById("alc_manufacturer").value;
-    let type = document.getElementById("alc_type").value;
+
+    let type = document.getElementById("types");
+    let text_type = type.options[type.selectedIndex].text;
+    let final_text_type;
+
+    switch (text_type) {
+        case "Вино":
+            final_text_type = "wine";
+            break;
+        case "Ликер":
+            final_text_type = "liquor";
+            break;
+        case "Пиво":
+            final_text_type = "beer";
+            break;
+        case "Водка":
+            final_text_type = "vodka";
+            break;
+        case "Виски":
+            final_text_type = "whiskey";
+            break;
+        case "Игристое":
+            final_text_type = "sparkling";
+            break;
+    }
+
     let imgData = reader.result;
     
 
@@ -40,7 +65,7 @@ function uploadForm() {
         description: description,
         price: price,
         manufacturer: manufacturer,
-        type: type,
+        type: final_text_type,
         img: imgData
     }
 

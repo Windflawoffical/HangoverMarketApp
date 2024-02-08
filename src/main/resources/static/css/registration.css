@@ -41,6 +41,19 @@ input:focus{
     box-sizing: border-box;
 }
 
+.register_form > select {
+    margin-bottom: 13px;
+    padding-left: 25px;
+    box-sizing: border-box;
+    color: black;
+    height: 45px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    border-radius: 5px;
+    border: 2px solid rgb(165, 165, 165);
+}
+
 .register_form > textarea {
     margin-bottom: 13px;
     color: black;

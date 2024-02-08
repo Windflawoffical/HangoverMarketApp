@@ -31,9 +31,11 @@ public class Alcohol {
     @Column(nullable = false)
     private String manufacturer;
 
-    @Column(nullable = false)
-    private String type;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type", nullable = false)
+    private Type type;
 
     @Column(nullable = false)
     private String img;
+
 }

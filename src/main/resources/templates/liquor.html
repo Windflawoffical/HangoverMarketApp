@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link th:href="@{/css/registration.css}" rel="stylesheet"/>
+</head>
+<body>
+    <header th:insert="~{blocks/header}"></header>
+    <div th:insert="~{blocks/underheader}"></div>
+    <div class="body-wrapper">
+        <div class="main-container">
+            <div class="main">
+                <div class="container">
+                    <!--                    сюда происходит вставка из js файла-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/load_items_liquor.js}"></script>
+    <footer th:insert="~{blocks/footer}"></footer>
+</body>
+</html>
