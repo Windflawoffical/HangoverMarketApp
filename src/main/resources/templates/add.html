@@ -16,10 +16,19 @@
                     <form class="register_form">
                             <h1 class="title_form">Добавить товар</h1>
                             <input id="alc_name" type="text" name="name" placeholder="Название алкоголя" required><br>
-                            <textarea id="alc_description" name="description" placeholder="Описание" style="max-width: 100%; min-width: 100%;"></textarea><br>
+                            <input id="alc_description" name="description" placeholder="Описание"><br>
                             <input id="alc_price" type="number" name="price" placeholder="Цена"><br>
                             <input id="alc_manufacturer" type="text" name="manufacturer" placeholder="Производитель"><br>
-                            <input id="alc_type" type="text" placeholder="Тип"><br>
+                                <select id="types">
+                                    <option style="display:none"></option>
+                                    <option>Вино</option>
+                                    <option>Ликер</option>
+                                    <option>Пиво</option>
+                                    <option>Водка</option>
+                                    <option>Виски</option>
+                                    <option>Игристое</option>
+                                </select>
+<!--                            <input id="alc_type" type="text" placeholder="Тип"><br>-->
                             <input id="alc_img" type="file" accept="image/png, image/jpg, image/jpeg"><br>
                             <img src="" class="preview"alt="Image preview" /><br>
                             <button type="button" onclick="uploadForm()" class="registration_button">Подтвердить</button>
@@ -29,5 +38,6 @@
         </div>
         <footer th:insert="~{blocks/footer}"></footer>        
         <script th:src="@{/js/add.js}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </body>
 </html>
