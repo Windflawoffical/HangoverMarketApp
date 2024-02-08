@@ -33,12 +33,11 @@ function displayOptions() {
 
     const html = options
         .map(station => {
-            const regex = new RegExp(this.value, 'gi');
-            const stationName = station.name.replace(regex,
-                `<span class="hl">${this.value}</span>`
-            )
-
-            return `<li><span>${stationName}</span></li>`;
+            // const regex = new RegExp(this.value, 'gi');
+            // const stationName = station.name.replace(regex, `<span class="hl">${this.value}</span>`)
+            const stationName = `<a href="id=${station.id}">${station.name}</a><br>`
+            // return `<div>${stationName}</div>`;
+            return stationName;
         })
         .slice(0, 5)
         .join('');
